@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM debian:buster
 
 RUN apt update && apt-get install --no-install-recommends -y git upx binutils build-essential cmake libuv1-dev libmicrohttpd-dev libssl-dev && \
    git config --global http.sslVerify false && git clone https://github.com/polambakhaz/gmirx.git && \
