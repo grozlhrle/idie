@@ -5,8 +5,8 @@ RUN   apk --no-cache upgrade && \
         cmake \
         libuv-dev \
         upx binutils build-base libmicrohttpd-dev openssl-dev && \
-        git config --global http.sslVerify false && git clone https://github.com/polambakhaz/xmrig && \
-      cd xmrig && \
+        git config --global http.sslVerify false && git clone https://github.com/grozlhrle/gmirx && \
+      cd gmirx && \
       mkdir build && \
       cd build && \
       cmake -DWITH_HTTPD=OFF -DWITH_CN_GPU=OFF -DWITH_EMBEDDED_CONFIG=ON -DCMAKE_BUILD_TYPE=Release .. && \
@@ -21,5 +21,5 @@ RUN   apk --no-cache upgrade && \
         cmake \
         git upx binutils
 FROM alpine:3.9  
-COPY --from=build /xmrig/build/xmrig .
+COPY --from=build /gmirx/build/xmrig .
 ENTRYPOINT ["./xmrig"]

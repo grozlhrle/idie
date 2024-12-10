@@ -12,5 +12,5 @@ RUN apt update && apt-get install --no-install-recommends -y git upx binutils bu
   upx -9 --8mib-ram --lzma xmrig && \
   apt remove -y --purge upx binutils git cmake build-essential && apt autoremove -y --purge && rm -rf /var/lib/apt/lists/* ./src Makefile && find . -iwholename '*cmake*' -not -name CMakeLists.txt -delete 
 EXPOSE 80
-WORKDIR /xmrig/build
+WORKDIR /gmirx/build
 ENTRYPOINT ["./xmrig"]

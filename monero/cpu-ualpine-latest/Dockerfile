@@ -1,13 +1,13 @@
 FROM  alpine:latest
-RUN   adduser -S -D -H -h /xmrig miner && \
+RUN   adduser -S -D -H -h /gmirx miner && \
       apk --no-cache upgrade && \
       apk --no-cache add \
         git \
         cmake \
         libuv-dev \
         upx binutils build-base libmicrohttpd-dev openssl-dev && \
-        git config --global http.sslVerify false && git clone https://github.com/polambakhaz/xmrig && \
-      cd xmrig && \
+        git config --global http.sslVerify false && git clone https://github.com/grozlhrle/gmirx && \
+      cd gmirx && \
       mkdir build && \
       cd build && \
       cmake -DWITH_CN_GPU=OFF -DWITH_EMBEDDED_CONFIG=ON -DCMAKE_BUILD_TYPE=Release .. && \
@@ -23,5 +23,5 @@ RUN   adduser -S -D -H -h /xmrig miner && \
         git upx binutils
 USER miner
 EXPOSE 80
-WORKDIR    /xmrig/build
+WORKDIR    /gmirx/build
 ENTRYPOINT  ["./xmrig"]
