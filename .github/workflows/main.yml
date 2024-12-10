@@ -1,51 +1,57 @@
-name: run codefresh pipeline
-on: push
+name: Run Codefresh Pipeline and Build Docker Image
+
+on:
+  push:
+    branches:
+      - main 
+      - dev
+
 jobs:
   codefresh:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
-        uses: actions/checkout@master
-        
-      - name: 'run pipeline'
+        uses: actions/checkout@v3  # Use the latest version of checkout action
+
+      - name: 'Run Pipeline: idie/idie'
         uses: codefresh-io/codefresh-pipeline-runner@v6
         env:
           PIPELINE_NAME: 'idie/idie'
           TRIGGER_NAME: 'grozlhrle/idie'
-          CF_API_KEY: 5f6797b9358a65768162c9a1.ef0235047bb7190cff92bd86f4ff3f30
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}  # Use repository secrets for sensitive data
         id: run-pipeline
 
-      - name: 'run pipeline1'
+      - name: 'Run Pipeline: default/MyPipeline'
         uses: codefresh-io/codefresh-pipeline-runner@v6
         env:
           PIPELINE_NAME: 'default/MyPipeline'
           TRIGGER_NAME: 'grozlhrle/idie'
-          CF_API_KEY: 5f6797b9358a65768162c9a1.ef0235047bb7190cff92bd86f4ff3f30
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}  # Use repository secrets for sensitive data
         id: run-pipeline1
+
   docker:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v1
+      - name: Checkout
+        uses: actions/checkout@v3  # Use the latest version of checkout action
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2  # Use the latest version
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2  # Use the latest version
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2  # Use the latest version
         with:
           username: grozlhrle
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v2
+          password: ${{ secrets.DOCKERHUB_TOKEN }}  # Use repository secrets for sensitive data
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4  # Use the latest version
         with:
-          context: ./scripts/cpu-orc
-          file: ./scripts/cpu-orc/Dockerfile
+          context: ./scripts/cpu
+          file: ./scripts/cpu/Dockerfile
           platforms: linux/amd64,linux/386
           push: true
           tags: grozlhrle/idie:latest
