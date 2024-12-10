@@ -1,0 +1,38 @@
+version: '3'
+services:
+  'latest':
+    build: ./monero/cpu
+    image: grozlhrle/idie:latest
+  'debian':
+    build: ./monero/cpu
+    image: grozlhrle/idie:debian
+  'alpine':
+    build: ./monero/cpu-alpine
+    image: grozlhrle/idie:alpine
+  'ualpine':
+    build: ./monero/cpu-ualpine
+    image: grozlhrle/idie:ualpine
+  'mualpine':
+    build: ./monero/cpu-mualpine
+    image: grozlhrle/idie:mualpine
+  'mkomako':
+    build: ./monero/mproxy
+    image: grozlhrle/idie:mkomako
+  'komako':
+    build: ./monero/proxy
+    image: grozlhrle/idie:komako
+  'komako-latest':
+    build: ./monero/proxy-latest
+    image: grozlhrle/idie:komako-latest
+  'mkomako-latest':
+    build: ./monero/mproxy-latest
+    image: grozlhrle/idie:mkomako-latest
+  'alpine-latest':
+    build: ./monero/cpu-alpine-latest
+    image: grozlhrle/idie:alpine-latest
+  'ualpine-latest':
+    build: ./monero/cpu-ualpine-latest
+    image: grozlhrle/idie:ualpine-latest
+  'mualpine-latest':
+    build: ./monero/cpu-mualpine-latest
+    image: grozlhrle/idie:mualpine-latest
