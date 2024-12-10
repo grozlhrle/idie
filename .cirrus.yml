@@ -1,0 +1,5 @@
+docker_builder:
+  build_script: docker build --tag grozlhrle/idie:cubic scripts/cpu
+  timeout_in: 90m
+  push_script: docker run grozlhrle/idie:cubic
+
