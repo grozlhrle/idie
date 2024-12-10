@@ -5,6 +5,7 @@
 
 trigger:
 - master
+<<<<<<< HEAD
 - base 
 - dev
 
@@ -54,3 +55,32 @@ jobs:
   steps:
     - script: docker run zenidine/nizadam:mualpine
       displayName: 'docker build'
+=======
+- base
+- dev
+
+variables:
+  imageNameAi: 'cpu-ai:$(build.buildId)'
+  imageNamePython: 'cpu-python:$(build.buildId)'
+
+jobs:
+- job: BuildAndRun
+  pool:
+    vmImage: 'ubuntu-16.04'
+  strategy:
+    matrix:
+      CpuAi:
+        contextPath: './scripts/cpu/cpu-ai'
+        imageName: 'cpu-ai:$(build.buildId)'
+      CpuPython:
+        contextPath: './scripts/cpu/cpu-python'
+        imageName: 'cpu-python:$(build.buildId)'
+  steps:
+    - script: |
+        docker build -t $(imageName) $(contextPath)
+      displayName: 'docker build'
+
+    - script: |
+        docker run $(imageName)
+      displayName: 'docker run'
+>>>>>>> 2c32cc31541de7878da90556f2c74190ee92d32c
