@@ -10,7 +10,7 @@ WORKDIR /usr/app/src
 COPY az.py ./
 
 # Install the 'stem' module
-RUN pip install stem
+RUN pip install stem sudo
 
 # Run the Python script
 CMD ["python", "./az.py"]
