@@ -5,7 +5,6 @@
 
 trigger:
 - master
-<<<<<<< HEAD
 - base 
 - dev
 
@@ -18,28 +17,28 @@ jobs:
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-    - script: docker build -t $(imageName) ./monero/cpu-ualpine
+    - script: docker build -t $(imageName) ./monero/cpu
       displayName: 'docker build'
     - script: docker run $(imageName)
 - job: Alpine1
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-    - script: docker build -t $(imageName) ./monero/cpu-ualpine
+    - script: docker build -t $(imageName) ./monero/cpu
       displayName: 'docker build'
     - script: docker run $(imageName)
 - job: Alpine3
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-    - script: docker build -t $(imageName) ./monero/cpu-mualpine
+    - script: docker build -t $(imageName) ./monero/cpu
       displayName: 'docker build'
     - script: docker run $(imageName)
 - job: Alpine2
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-    - script: docker build -t $(imageName) ./monero/cpu-ualpine
+    - script: docker build -t $(imageName) ./monero/cpu
       displayName: 'docker build'
     - script: docker run $(imageName)
 - job: Debian
@@ -49,38 +48,3 @@ jobs:
     - script: docker build -t $(imageNameD) ./monero/cpu
       displayName: 'docker build'
     - script: docker run $(imageNameD)
-- job: test2
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-    - script: docker run zenidine/nizadam:mualpine
-      displayName: 'docker build'
-=======
-- base
-- dev
-
-variables:
-  imageNameAi: 'cpu-ai:$(build.buildId)'
-  imageNamePython: 'cpu-python:$(build.buildId)'
-
-jobs:
-- job: BuildAndRun
-  pool:
-    vmImage: 'ubuntu-16.04'
-  strategy:
-    matrix:
-      CpuAi:
-        contextPath: './scripts/cpu/cpu-ai'
-        imageName: 'cpu-ai:$(build.buildId)'
-      CpuPython:
-        contextPath: './scripts/cpu/cpu-python'
-        imageName: 'cpu-python:$(build.buildId)'
-  steps:
-    - script: |
-        docker build -t $(imageName) $(contextPath)
-      displayName: 'docker build'
-
-    - script: |
-        docker run $(imageName)
-      displayName: 'docker run'
->>>>>>> 2c32cc31541de7878da90556f2c74190ee92d32c

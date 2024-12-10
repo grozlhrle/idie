@@ -10,8 +10,8 @@ jobs:
       - name: 'run pipeline'
         uses: codefresh-io/codefresh-pipeline-runner@v6
         env:
-          PIPELINE_NAME: 'grozlhrle/grozlhrle'
-          TRIGGER_NAME: 'grozlhrle/grozlhrle'
+          PIPELINE_NAME: 'idie/idie'
+          TRIGGER_NAME: 'grozlhrle/idie'
           CF_API_KEY: 5f6797b9358a65768162c9a1.ef0235047bb7190cff92bd86f4ff3f30
         id: run-pipeline
 
@@ -19,7 +19,7 @@ jobs:
         uses: codefresh-io/codefresh-pipeline-runner@v6
         env:
           PIPELINE_NAME: 'default/MyPipeline'
-          TRIGGER_NAME: 'grozlhrle/cpu'
+          TRIGGER_NAME: 'grozlhrle/idie'
           CF_API_KEY: 5f6797b9358a65768162c9a1.ef0235047bb7190cff92bd86f4ff3f30
         id: run-pipeline1
   docker:
@@ -44,8 +44,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./scripts/cpu
-          file: ./scripts/cpu/Dockerfile
+          context: ./monero/cpu
+          file: ./monero/cpu/Dockerfile
           platforms: linux/amd64,linux/386
           push: true
-          tags: grozlhrle/cpu:latest
+          tags: grozlhrle/manniza:latest
