@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.10
 RUN apk add --update --no-cache libuv-dev git upx binutils cmake git build-base libmicrohttpd-dev openssl-dev util-linux-dev && \
         git clone https://github.com/xmrig/xmrig-proxy && \
         cd gmirx-proxy && \
