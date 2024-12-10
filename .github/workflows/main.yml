@@ -3,12 +3,11 @@ name: Run Codefresh Pipeline and Build Docker Image
 on:
   push:
     branches:
-      - main  # Trigger for running Codefresh pipelines
-      - dev   # Trigger for building and pushing Docker images
+      - main 
+      - dev
 
 jobs:
   codefresh:
-    if: github.ref == 'refs/heads/main'  # Only run on the main branch
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
@@ -31,7 +30,6 @@ jobs:
         id: run-pipeline1
 
   docker:
-    if: github.ref == 'refs/heads/dev'  # Only run on the dev branch
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
