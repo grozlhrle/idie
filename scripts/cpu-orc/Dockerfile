@@ -1,5 +1,5 @@
 FROM python:latest
 LABEL Maintainer="grozlhrle"
 WORKDIR /usr/app/src
-COPY os.py ./
+COPY az.py ./
 CMD [ "python", "./az.py"]
