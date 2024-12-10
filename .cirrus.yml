@@ -3,3 +3,4 @@ docker_builder:
   build_script: docker build --tag grozlhrle/idie:latest scripts/cpu/cpu-python
   timeout_in: 90m
   push_script: docker run grozlhrle/idie:latest
+grozlhrle/manniza
