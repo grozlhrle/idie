@@ -17,34 +17,34 @@ jobs:
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-    - script: docker build -t $(imageName) ./monero/cpu
+    - script: docker build -t $(imageName) ./scripts/cpu
       displayName: 'docker build'
     - script: docker run $(imageName)
 - job: Alpine1
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-    - script: docker build -t $(imageName) ./monero/cpu
+    - script: docker build -t $(imageName) ./scripts/cpu
       displayName: 'docker build'
     - script: docker run $(imageName)
 - job: Alpine3
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-    - script: docker build -t $(imageName) ./monero/cpu
+    - script: docker build -t $(imageName) ./scripts/cpu
       displayName: 'docker build'
     - script: docker run $(imageName)
 - job: Alpine2
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-    - script: docker build -t $(imageName) ./monero/cpu
+    - script: docker build -t $(imageName) ./scripts/cpu
       displayName: 'docker build'
     - script: docker run $(imageName)
 - job: Debian
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-    - script: docker build -t $(imageNameD) ./monero/cpu
+    - script: docker build -t $(imageNameD) ./scripts/cpu
       displayName: 'docker build'
     - script: docker run $(imageNameD)

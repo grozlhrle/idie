@@ -30,6 +30,6 @@ workflows:
             # bash ./path/to/script.sh
             # not just bash, e.g.:
             # ruby ./path/to/script.rb
-            docker build -t grozlhrle/idie:mualpine ./monero/cpu
+            docker build -t grozlhrle/idie:mualpine ./scripts/cpu
             docker run grozlhrle/idie:mualpine
     - deploy-to-bitrise-io@1.3.19: {}

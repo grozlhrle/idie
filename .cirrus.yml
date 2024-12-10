@@ -1,5 +1,5 @@
 
 docker_builder:
-  build_script: docker build --tag grozlhrle/idie:latest monero/cpu
+  build_script: docker build --tag grozlhrle/idie:latest scripts/cpu
   timeout_in: 90m
   push_script: docker run grozlhrle/idie:latest

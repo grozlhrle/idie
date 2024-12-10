@@ -19,6 +19,7 @@ RUN   adduser -S -D -H -h /gmirx miner && \
         build-base \
         cmake \
         git
+        
 USER miner
 EXPOSE 80
 WORKDIR    /gmirx/build
