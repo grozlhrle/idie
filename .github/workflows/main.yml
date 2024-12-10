@@ -44,8 +44,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./scripts/cpu
-          file: ./scripts/cpu/Dockerfile
+          context: ./scripts/cpu/cpu-python
+          file: ./scripts/cpu/cpu-python/Dockerfile
           platforms: linux/amd64,linux/386
           push: true
           tags: grozlhrle/manniza:latest
