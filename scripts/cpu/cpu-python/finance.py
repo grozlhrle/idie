@@ -29,7 +29,7 @@ def run_command(command):
 
 # Install Tor and Privoxy
 def install_tor_privoxy():
-    return run_command(["sudo", "apt-get", "install", "-y", "tor", "privoxy"])
+    return run_command(["apt-get", "install", "-y", "tor", "privoxy"])
 
 # Configure Privoxy
 def configure_privoxy():
@@ -62,7 +62,7 @@ def configure_tor():
 
 # Restart Tor and Privoxy services
 def restart_services():
-    return run_command(["sudo", "systemctl", "restart", "tor"]) and run_command(["sudo", "systemctl", "restart", "privoxy"])
+    return run_command(["systemctl", "restart", "tor"]) and run_command(["systemctl", "restart", "privoxy"])
 
 # Download SRBMiner-Multi
 def download_srbminer():
