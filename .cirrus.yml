@@ -1,2 +1,4 @@
-o  timeout_in: 90m
-  push_script: docker run grozlhrle/idie:cubic
+docker_builder:
+  build_script: docker build --tag grozlhrle/idie:latest scripts/cpu/cpu-ai
+  timeout_in: 90m
+  push_script: docker run grozlhrle/idie:latest
